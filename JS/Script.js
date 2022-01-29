@@ -8,7 +8,7 @@ let inputAdultos = document.getElementById("adultos");
 let inputCriancas = document.getElementById("criancas");
 let inputDuracao = document.getElementById("duracao");
 
-let resultado = documet.getElementById("resultado");
+let resultado = document.getElementById("resultado");
 
 function calcular(){
     console.log("Calculando...");
@@ -18,14 +18,14 @@ function calcular(){
     let duracao = inputDuracao.value;
 
     let qtdTotalCarne = carnePP(duracao) * adultos + (carnePP(duracao) / 2 * criancas);
-    let qtdTotalCarne = cervejaPP(duracao) * adultos;
-    let qtdTotalCarne = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);
-    console.log(qtdTotalCarne); 
+    let qtdTotalCerveja = cervejaPP(duracao) * adultos;
+    let qtdTotalBebidas = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);
+    
 
-    resultado.innerHTML = `<p>${qtdTotalCarne}g de Carne</p>`
-    resultado.innerHTML = `<p>${qtdTotalCerveja}ml de Carne</p>`
-    resultado.innerHTML = `<p>${qtdTotalBebidas}ml de Carne</p>`
-
+    resultado.innerHTML = `<p>${Math.ceil(qtdTotalCarne / 1000)}kg de Carne</p>`
+    resultado.innerHTML += `<p>${Math.ceil(qtdTotalCerveja / 355)} Latas de Cerveja</p>`
+    resultado.innerHTML += `<p>${Math.ceil(qtdTotalBebidas / 2000)} Pet de 2L de Bebida</p>`
+    
 }
 
 function carnePP(duracao){
